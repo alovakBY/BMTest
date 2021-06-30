@@ -172,7 +172,7 @@ const languages = {
 }
 
 // Задаем атрибут lang = языку системы
-document.documentElement.lang = userLang.slice(0,2).toLowerCase()  
+document.documentElement.lang = userLang.slice(0,2).toLowerCase()
 
 // Если атрибут lang === какому-нибудь из нашего набора языков, то текст на баннере соответствует этому языку(иначе язык === english)
 for (let i = 0; i < Object.keys(languages).length; i++) {
