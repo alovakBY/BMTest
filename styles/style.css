@@ -7,16 +7,16 @@ body {
 .container {
   max-width: 585px;
   margin: 0 auto;
-  background: url(../img/4@3x.png) no-repeat 50% 50%;
+  background: url(../img/4@3x.png) no-repeat center;
   background-size: cover;
-  padding: 45px 20px 40px;
+  padding: 45px 20px 35px;
 }
 
 .header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 153px;
+  margin-bottom: 148px;
 }
 
 .close a {
@@ -31,18 +31,22 @@ body {
   color: rgba(255, 255, 255, 0.6);
   text-decoration: none;
 }
+
 .main {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
+
 .title {
   font-weight: 700;
   font-size: 36px;
-  line-height: 42px;
+  line-height: 1.4;
   text-align: center;
-  margin-bottom: 25px;
+  margin-bottom: 20px;
+  text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5);
 }
+
 .subtitles {
   margin-bottom: 50px;
 }
@@ -53,7 +57,7 @@ body {
 }
 
 .subtitle + .subtitle {
-  margin-top: 10px;
+  margin-top: 8px;
 }
 
 .subtitle__text {
@@ -76,34 +80,25 @@ body {
   margin-bottom: 25px;
 }
 
-.cell:first-child {
-  padding: 24px 0px 13px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 131px;
-  height: 162px;
-  background: url("../img/shape-transparency.svg") no-repeat 50% 50%;
-  background-size: contain;
-  opacity: 0.5;
-}
-
-.cell:last-child {
-  position: relative;
+.cell {
   padding: 25px 0px 13px;
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 131px;
   height: 162px;
-  background: url("../img/shape-2-transparency.svg") no-repeat 50% 50%;
-  background-size: contain;
   opacity: 0.5;
 }
 
-.cell.activ {
-  opacity: 1;
-  transform: scale(1.1);
+.cell:first-child {
+  background: url("../img/shape-transparency.svg") no-repeat 50% 50%;
+  background-size: contain;
+}
+
+.cell:last-child {
+  position: relative;
+  background: url("../img/shape-2-transparency.svg") no-repeat 50% 50%;
+  background-size: contain;
 }
 
 .sale {
@@ -166,6 +161,7 @@ body {
   height: 55px;
   border-radius: 30px;
   background: linear-gradient(270deg, #1987ff 0%, #19ccff 100%);
+  /* margin-bottom: 20px; */
   margin-bottom: 15px;
   font-size: 17px;
   line-height: 1;
@@ -180,6 +176,7 @@ body {
   line-height: 1.1;
   text-align: center;
   opacity: 0.5;
+  /* margin-bottom: 20px; */
   margin-bottom: 15px;
 }
 
@@ -194,4 +191,107 @@ body {
   line-height: 1.1;
   text-decoration-line: underline;
   color: rgba(255, 255, 255, 0.6);
+}
+
+@media only screen and (min-device-width: 385px) {
+  .header {
+    margin-bottom: 154px;
+  }
+
+  .title {
+    margin-bottom: 30px;
+  }
+
+  .subtitle + .subtitle {
+    margin-top: 12px;
+  }
+
+  .button {
+    margin-bottom: 20px;
+  }
+
+  .footer__text {
+    margin-bottom: 20px;
+  }
+}
+
+@media only screen and (min-device-width: 375px) and (max-device-height: 667px) {
+  .container {
+    background: url(../img/4@2x.png) no-repeat center;
+    background-size: cover;
+    padding: 25px 20px 35px;
+  }
+
+  .header {
+    margin-bottom: 100px;
+  }
+  .title {
+    font-size: 32px;
+    line-height: 1.2;
+    margin-bottom: 20px;
+  }
+
+  .subtitles {
+    margin-bottom: 30px;
+  }
+
+  .subtitle + .subtitle {
+    margin-top: 5px;
+  }
+
+  .subtitle__text {
+    margin-left: 5px;
+    font-family: "SFProText";
+    font-size: 17px;
+    line-height: 1.4;
+  }
+
+  .cells {
+    padding: 0px 25px;
+    margin-bottom: 20px;
+  }
+
+  .cell {
+    padding: 20px 0px 10px;
+    height: 152px;
+  }
+  .cell__title {
+    margin-bottom: 10px;
+    font-size: 16px;
+  }
+
+  .cell__priceTop strong {
+    font-size: 20px;
+  }
+
+  .cell__priceTop {
+    margin-bottom: 8px;
+    font-size: 13px;
+  }
+
+  .cell__label {
+    font-size: 13px;
+    line-height: 15px;
+  }
+
+  .button {
+    height: 50px;
+  }
+
+  .footer__text {
+    margin-bottom: 10px;
+  }
+
+  .footer__links {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .footer__link a {
+    font-family: "Roboto", sans-serif;
+    font-size: 11px;
+    line-height: 1.1;
+    text-decoration-line: underline;
+    color: rgba(255, 255, 255, 0.6);
+  }
 }
