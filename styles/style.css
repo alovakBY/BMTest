@@ -170,7 +170,6 @@ body {
   height: 55px;
   border-radius: 30px;
   background: linear-gradient(270deg, #1987ff 0%, #19ccff 100%);
-  /* margin-bottom: 20px; */
   margin-bottom: 15px;
   font-size: 17px;
   line-height: 1;
@@ -185,7 +184,6 @@ body {
   line-height: 1.1;
   text-align: center;
   opacity: 0.5;
-  /* margin-bottom: 20px; */
   margin-bottom: 15px;
 }
 
@@ -202,7 +200,8 @@ body {
   color: rgba(255, 255, 255, 0.6);
 }
 
-@media only screen and (min-device-width: 385px) {
+/* Iphone 12 */
+@media only screen and (min-device-width: 390px) and (max-device-height: 844px) {
   .header {
     margin-bottom: 154px;
   }
@@ -231,6 +230,44 @@ body {
   }
 }
 
+/* Iphone 6+,7+,8+ */
+@media only screen and (min-device-width: 414px) and (max-device-height: 736px) {
+  .container {
+    padding: 30px 20px 25px;
+  }
+  .header {
+    margin-bottom: 120px;
+  }
+
+  .title {
+    font-size: 32px;
+    line-height: 1.2;
+    margin-bottom: 40px;
+  }
+
+  .title.ru,
+  .title.fr,
+  .title.nl,
+  .title.es {
+    margin-bottom: 37px;
+  }
+
+  .title.en,
+  .title.ja,
+  .title.zh {
+    margin-bottom: 25px;
+  }
+
+  .subtitles {
+    margin-bottom: 20px;
+  }
+
+  .footer__text {
+    margin-bottom: 15px;
+  }
+}
+
+/* Iphone 6,7,8 */
 @media only screen and (min-device-width: 375px) and (max-device-height: 667px) {
   .container {
     background: url(../img/4@2x.png) no-repeat center;
@@ -297,6 +334,14 @@ body {
     line-height: 15px;
   }
 
+  .sale {
+    top: 1px;
+    right: 4px;
+    width: 28px;
+    height: 28px;
+    font-size: 9px;
+  }
+
   .button {
     height: 50px;
   }
@@ -316,5 +361,97 @@ body {
     line-height: 1.1;
     text-decoration-line: underline;
     color: rgba(255, 255, 255, 0.6);
+  }
+}
+
+/* Iphone 5,SE */
+@media only screen and (min-device-width: 320px) and (max-device-height: 568px) {
+  .container {
+    background: url(../img/4@2x.png) no-repeat center;
+    background-size: cover;
+    padding: 20px 10px 20px;
+  }
+
+  .header {
+    margin-bottom: 60px;
+  }
+
+  .title {
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 1.4;
+    text-align: center;
+    margin-bottom: 20px;
+    text-shadow: 0px 2px 4px rgb(0 0 0 / 50%);
+  }
+
+  .title {
+    font-size: 28px;
+    line-height: 1.2;
+    margin-bottom: 15px;
+  }
+
+  .title.ru,
+  .title.fr,
+  .title.nl,
+  .title.es {
+    font-size: 24px;
+    margin-bottom: 25px;
+  }
+
+  .subtitles {
+    margin-bottom: 20px;
+  }
+
+  .subtitle__text {
+    font-size: 14px;
+    line-height: 1.2;
+  }
+
+  .cells {
+    margin-bottom: 15px;
+  }
+
+  .cell {
+    padding: 20px 0px 10px;
+    width: 115px;
+    height: 145px;
+    opacity: 0.5;
+  }
+
+  .cell__title {
+    margin-bottom: 10px;
+    font-size: 13px;
+    line-height: 1;
+  }
+
+  .cell__priceTop strong {
+    font-size: 20px;
+  }
+
+  .cell__label {
+    width: 120px;
+    margin-bottom: 5px;
+    font-size: 12px;
+    line-height: 16px;
+  }
+
+  .sale {
+    top: 3px;
+    right: 0px;
+    width: 26px;
+    height: 26px;
+    font-size: 8px;
+  }
+
+  .button {
+    width: 260px;
+    height: 50px;
+    margin-bottom: 13px;
+    font-size: 17px;
+  }
+
+  .footer__text {
+    margin-bottom: 10px;
   }
 }

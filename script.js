@@ -2,6 +2,8 @@
 const cells = document.querySelector('.cells')
 const continueBtn = document.querySelector('.button')
 const container = document.querySelector('.container')
+// Языковые настройки системы
+const userLang = navigator.language || navigator.userLanguage
 
 // Функция которая меняет ссылку на кнопке в зависимости от выбранной ячейки. При загрузке страницы первая ячейка активная по дефолту.  
 function getLink() {
@@ -14,7 +16,6 @@ function getLink() {
 
 getLink()
 
-
 // Клик по ячейке. Меняем класс ячейки, по которой кликнули на активную, второй ячейке убираем класс activ. Меняем ссылку на кнопке.
 cells.addEventListener('click', (e) => {
 	if (e.target.className === 'cells') return
@@ -26,7 +27,7 @@ cells.addEventListener('click', (e) => {
 }) 
 
 
-const userLang = navigator.language || navigator.userLanguage; 
+// Объект языковых настроек
 const languages = {
 	en : {
 		"Unlimited Access<br>to All Features": "Unlimited Access<br>to All Features",
@@ -170,18 +171,21 @@ const languages = {
 	 },
 }
 
+// Задаем атрибут lang = языку системы
+document.documentElement.lang = userLang.slice(0,2).toLowerCase()  
 
-document.documentElement.lang = 'ru'    /* userLang.slice(0,2).toLowerCase() */
-console.log(document.documentElement.lang)
-
-
-Object.keys(languages).forEach(lang => {
-	if (userLang.slice(0,2).toLowerCase() === lang) {
-		console.log(languages[lang])
+// Если атрибут lang === какому-нибудь из нашего набора языков, то текст на баннере соответствует этому языку(иначе язык === english)
+for (let i = 0; i < Object.keys(languages).length; i++) {
+	if (document.documentElement.lang === Object.keys(languages)[i]) {
+		getContainer(languages[Object.keys(languages)[i]])
+		break
+	} else {
+		getContainer(languages['en'])
 	}
-})
+}
 
 
+// Функция, которая поставит нужный нам язык 
 function getContainer(language) {
 	const restore = document.querySelector('.restore a')
 	restore.innerHTML = language['Restore']
@@ -228,4 +232,3 @@ function getContainer(language) {
 	secondFooterLink.innerHTML = language['Privacy Policy']
 }
 
-getContainer(languages[`${document.documentElement.lang}`])
