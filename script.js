@@ -4,6 +4,7 @@ const continueBtn = document.querySelector('.button')
 const container = document.querySelector('.container')
 // Языковые настройки системы
 const userLang = navigator.language || navigator.userLanguage
+const loc = window.location.href
 
 // Функция которая меняет ссылку на кнопке в зависимости от выбранной ячейки. При загрузке страницы первая ячейка активная по дефолту.  
 function getLink() {
@@ -174,19 +175,23 @@ const languages = {
 // Задаем атрибут lang = языку системы
 document.documentElement.lang = userLang.slice(0,2).toLowerCase()
 
+
 // Если атрибут lang === какому-нибудь из нашего набора языков, то текст на баннере соответствует этому языку(иначе язык === english)
-for (let i = 0; i < Object.keys(languages).length; i++) {
-	if (document.documentElement.lang === Object.keys(languages)[i]) {
-		getContainer(languages[Object.keys(languages)[i]])
-		break
-	} else {
-		getContainer(languages['en'])
+if (Object.keys(languages).some((el) => el === document.documentElement.lang)) {
+	for (let i = 0; i < Object.keys(languages).length; i++) {
+		 if (document.documentElement.lang === Object.keys(languages)[i]) {
+			  getContainer(languages[Object.keys(languages)[i]], Object.keys(languages)[i])
+			  break
+		 }
 	}
+} else {
+	getContainer(languages['en'], 'en')
 }
 
 
 // Функция, которая поставит нужный нам язык 
-function getContainer(language) {
+function getContainer(language,l) {
+	window.location = loc.split('#')[0]+`#?lang=${l}`
 	const restore = document.querySelector('.restore a')
 	restore.innerHTML = language['Restore']
 	const title = document.querySelector('.title')
@@ -231,4 +236,6 @@ function getContainer(language) {
 	const secondFooterLink = document.querySelector('.secondFooterLink a')
 	secondFooterLink.innerHTML = language['Privacy Policy']
 }
+
+
 
