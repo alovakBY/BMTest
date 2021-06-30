@@ -5,7 +5,7 @@ body {
 }
 
 .container {
-  max-width: 585px;
+  width: 100%;
   margin: 0 auto;
   background: url(../img/4@3x.png) no-repeat center;
   background-size: cover;
