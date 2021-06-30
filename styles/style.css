@@ -47,6 +47,14 @@ body {
   text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
+.title.ru,
+.title.fr,
+.title.nl,
+.title.es {
+  font-size: 27px;
+  margin-bottom: 48px;
+}
+
 .subtitles {
   margin-bottom: 50px;
 }
@@ -146,6 +154,7 @@ body {
 .cell__label {
   text-align: center;
   width: 137px;
+  padding: 2px 0px;
   background: #495795;
   margin-bottom: 10px;
   font-size: 14px;
@@ -202,6 +211,13 @@ body {
     margin-bottom: 30px;
   }
 
+  .title.ru,
+  .title.fr,
+  .title.nl,
+  .title.es {
+    margin-bottom: 56px;
+  }
+
   .subtitle + .subtitle {
     margin-top: 12px;
   }
@@ -229,6 +245,13 @@ body {
     font-size: 32px;
     line-height: 1.2;
     margin-bottom: 20px;
+  }
+
+  .title.ru,
+  .title.fr,
+  .title.nl,
+  .title.es {
+    margin-bottom: 32px;
   }
 
   .subtitles {
