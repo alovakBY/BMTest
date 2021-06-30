@@ -1,6 +1,39 @@
 'use strict'
+const cells = document.querySelector('.cells')
+const continueBtn = document.querySelector('.button');
 
-const userLang = navigator.language || navigator.userLanguage; 
+// Функция которая меняет ссылку на кнопке в зависимости от выбранной ячейки. При загрузке страницы первая ячейка активная по дефолту.  
+function getLink() {
+	[...cells.children].forEach(cell => {
+		if (cell.classList.contains('activ')) {
+			continueBtn.href = cell.dataset.link
+		}
+	})
+}
+
+getLink()
+
+
+// Клик по ячейке. Меняем класс ячейки, по которой кликнули на активную, второй ячейке убираем класс activ. Меняем ссылку на кнопке.
+cells.addEventListener('click', (e) => {
+	if (e.target.className === 'cells') return
+	[...e.currentTarget.children].forEach(cell => {
+		cell.classList.remove('activ')
+	})
+	e.target.closest('.cell').classList.add('activ')
+	getLink()
+})
+
+
+
+
+
+
+
+
+
+
+/* const userLang = navigator.language || navigator.userLanguage; 
 const languages = {
 	en : {
 		"Unlimited Access<br>to All Features": "Unlimited Access<br>to All Features",
@@ -145,4 +178,4 @@ Object.keys(languages).forEach(lang => {
 	if (userLang.slice(0,2).toLowerCase() === lang) {
 		console.log(languages[lang])
 	}
-})
+}) */

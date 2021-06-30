@@ -2,6 +2,7 @@ body {
   font-family: "SFProDisplay";
   font-weight: 400;
   color: #ffffff;
+  height: 10000px;
 }
 
 .container {
@@ -42,37 +43,157 @@ body {
   font-size: 36px;
   line-height: 42px;
   text-align: center;
-  margin-bottom: 30px;
+  margin-bottom: 25px;
 }
 .subtitles {
+  margin-bottom: 50px;
 }
+
 .subtitle {
   display: flex;
-  justify-content: space-around;
+  align-items: center;
 }
-.subtitle__img {
+
+.subtitle + .subtitle {
+  margin-top: 10px;
 }
+
 .subtitle__text {
+  margin-left: 5px;
+  font-family: "SFProText";
+  font-size: 17px;
+  line-height: 1.4;
 }
+
+.subtitle__img {
+  display: flex;
+  align-items: center;
+}
+
 .cells {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 0px 25px;
+  margin-bottom: 25px;
 }
-.cell {
+
+.cell:first-child {
+  padding: 24px 0px 13px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 131px;
+  height: 162px;
+  background: url("../img/shape-transparency.svg") no-repeat 50% 50%;
+  background-size: contain;
+  opacity: 0.5;
 }
+
+.cell:last-child {
+  position: relative;
+  padding: 25px 0px 13px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 131px;
+  height: 162px;
+  background: url("../img/shape-2-transparency.svg") no-repeat 50% 50%;
+  background-size: contain;
+  opacity: 0.5;
+}
+
+.cell.activ {
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+.sale {
+  position: absolute;
+  top: 1px;
+  right: 0px;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #db0000;
+  border-radius: 50%;
+  font-size: 10px;
+  line-height: 1.2;
+  font-weight: 700;
+}
+
+.cell.activ {
+  opacity: 1;
+  transform: scale(1.1);
+}
+
 .cell__title {
+  margin-bottom: 15px;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 1.1;
+  text-align: center;
 }
+
+.cell__priceTop strong {
+  font-size: 22px;
+  line-height: 0.7;
+  text-align: center;
+}
+
 .cell__priceTop {
+  margin-bottom: 10px;
+  font-size: 15px;
+  line-height: 1;
+  text-align: center;
 }
+
 .cell__label {
+  text-align: center;
+  width: 137px;
+  background: #495795;
+  margin-bottom: 10px;
+  font-size: 14px;
+  line-height: 16px;
+  font-weight: 700;
 }
-.cell__priceBottom {
+
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 280px;
+  height: 55px;
+  border-radius: 30px;
+  background: linear-gradient(270deg, #1987ff 0%, #19ccff 100%);
+  margin-bottom: 15px;
+  font-size: 17px;
+  line-height: 1;
+  font-weight: 700;
+  text-decoration: none;
+  color: #ffffff;
 }
-.bottom {
-}
-.footer {
-}
+
 .footer__text {
+  font-family: "Roboto", sans-serif;
+  font-size: 11px;
+  line-height: 1.1;
+  text-align: center;
+  opacity: 0.5;
+  margin-bottom: 15px;
 }
+
 .footer__links {
+  display: flex;
+  justify-content: space-between;
 }
-.footer__link {
+
+.footer__link a {
+  font-family: "Roboto", sans-serif;
+  font-size: 11px;
+  line-height: 1.1;
+  text-decoration-line: underline;
+  color: rgba(255, 255, 255, 0.6);
 }

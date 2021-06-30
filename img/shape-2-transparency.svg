@@ -1,11 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="133" height="164" viewBox="0 0 133 164">
-    <g fill="none" fill-opacity=".1" fill-rule="evenodd" opacity=".495">
-        <g fill="#495795" stroke="#495795">
-            <g>
-                <g transform="translate(-45.000000, -475.000000) translate(43.000000, 465.000000) translate(0.000000, 11.000000)">
-                    <rect width="131" height="162" x="3" rx="19"/>
-                </g>
-            </g>
-        </g>
-    </g>
-</svg>
+<?xml version="1.0" encoding="utf-8"?>
+		<svg viewBox="0 0 133 164" xmlns="http://www.w3.org/2000/svg" width="133" height="164">
+			<path
+				d="M 19.714 1 L 109.339 1 C 104.067 3.828 100.481 9.402 100.481 15.817 C 100.481 25.091 107.978 32.61 117.226 32.61 C 123.622 32.61 129.18 29.014 132 23.726 L 132 144.232 C 132 154.597 123.621 163 113.286 163 L 19.714 163 C 9.379 163 1 154.597 1 144.232 L 1 19.768 C 1 9.403 9.379 1 19.714 1 Z"
+				style="stroke: rgb(73, 87, 149); stroke-opacity: 0.495; fill: rgb(73, 87, 149); fill-opacity: 0.1;" />
+		</svg>
