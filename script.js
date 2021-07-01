@@ -2,32 +2,7 @@
 const cells = document.querySelector('.cells')
 const continueBtn = document.querySelector('.button')
 const container = document.querySelector('.container')
-// Языковые настройки системы
-let userLang = navigator.language || navigator.userLanguage
-userLang = userLang.slice(0,2).toLowerCase()
-
-// Функция которая меняет ссылку на кнопке в зависимости от выбранной ячейки. При загрузке страницы первая ячейка активная по дефолту.  
-function getLink() {
-	[...cells.children].forEach(cell => {
-		if (cell.classList.contains('activ')) {
-			continueBtn.href = cell.dataset.link
-		}
-	})
-}
-
-getLink()
-
-// Клик по ячейке. Меняем класс ячейки, по которой кликнули на активную, второй ячейке убираем класс activ. Меняем ссылку на кнопке.
-cells.addEventListener('click', (e) => {
-	if (e.target.className === 'cells') return
-	[...e.currentTarget.children].forEach(cell => {
-		cell.classList.remove('activ')
-	})
-	e.target.closest('.cell').classList.add('activ')
-	getLink()
-}) 
-
-
+const params = new URLSearchParams(document.location.search.substring(1));
 // Объект языковых настроек
 const languages = {
 	en : {
@@ -172,26 +147,33 @@ const languages = {
 	 },
 }
 
-// Задаем атрибут lang = языку системы
-//document.documentElement.lang = userLang
+// Языковые настройки системы
+let userLang = navigator.language || navigator.userLanguage
+userLang = userLang.slice(0,2).toLowerCase()
 
-// Если атрибут lang === какому-нибудь из нашего набора языков, то текст на баннере соответствует этому языку(иначе язык === english)
-if (window.location.search === "") {
-  if (Object.keys(languages).indexOf(userLang) !== -1) {
-	  const langIndex = Object.keys(languages).indexOf(userLang)
-	  getContainer(languages[Object.keys(languages)[langIndex]])
-  } else {
-	  getContainer(languages['en'])
-  }
-} else {
-  const langAtrr = window.location.search.split("=")[1]
-  if (Object.keys(languages).indexOf(langAtrr) !== -1) {
-	const langIndex = Object.keys(languages).indexOf(langAtrr)
-	getContainer(languages[Object.keys(languages)[langIndex]])
-} else {
-	getContainer(languages['en'])
+// Функция которая меняет ссылку на кнопке в зависимости от выбранной ячейки. При загрузке страницы первая ячейка активная по дефолту.  
+function getLink() {
+	[...cells.children].forEach(cell => {
+		if (cell.classList.contains('activ')) {
+			continueBtn.href = cell.dataset.link
+		}
+	})
 }
+
+getLink()
+
+// Функция, которая смотрит есть ли язык который требуется у нас в объекте languages. Если нет, то берется английский.
+function findLanguage(lang) {
+	if (Object.keys(languages).indexOf(lang) !== -1) {
+		const langIndex = Object.keys(languages).indexOf(lang)
+		document.documentElement.lang = lang
+		getContainer(languages[Object.keys(languages)[langIndex]])
+	} else {
+		document.documentElement.lang = `en`
+		getContainer(languages['en'])
+	}
 }
+
 // Функция, которая поставит нужный нам язык 
 function getContainer(language) {
 	const restore = document.querySelector('.restore a')
@@ -238,6 +220,26 @@ function getContainer(language) {
 	const secondFooterLink = document.querySelector('.secondFooterLink a')
 	secondFooterLink.innerHTML = language['Privacy Policy']
 }
+
+// Клик по ячейке. Меняем класс ячейки, по которой кликнули на активную, второй ячейке убираем класс activ. Меняем ссылку на кнопке.
+cells.addEventListener('click', (e) => {
+	if (e.target.className === 'cells') return
+	[...e.currentTarget.children].forEach(cell => {
+		cell.classList.remove('activ')
+	})
+	e.target.closest('.cell').classList.add('activ')
+	getLink()
+}) 
+
+// Если в строке запроса нету параметра lang, то берется язык из системы
+if (!params.get('lang')) {
+	findLanguage(userLang)
+} else {
+  const langParam = params.get('lang')
+  findLanguage(langParam)
+}
+
+
 
 
 

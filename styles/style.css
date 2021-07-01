@@ -399,6 +399,11 @@ body {
     margin-bottom: 23px;
   }
 
+  .title.zh,
+  .title.ja {
+    line-height: 1.1;
+  }
+
   .subtitles {
     margin-bottom: 20px;
   }
