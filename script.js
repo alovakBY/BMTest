@@ -3,8 +3,8 @@ const cells = document.querySelector('.cells')
 const continueBtn = document.querySelector('.button')
 const container = document.querySelector('.container')
 // Языковые настройки системы
-const userLang = navigator.language || navigator.userLanguage
-const loc = window.location.href
+let userLang = navigator.language || navigator.userLanguage
+userLang = userLang.slice(0,2).toLowerCase()
 
 // Функция которая меняет ссылку на кнопке в зависимости от выбранной ячейки. При загрузке страницы первая ячейка активная по дефолту.  
 function getLink() {
@@ -173,20 +173,27 @@ const languages = {
 }
 
 // Задаем атрибут lang = языку системы
-document.documentElement.lang = userLang.slice(0,2).toLowerCase()
+//document.documentElement.lang = userLang
 
 // Если атрибут lang === какому-нибудь из нашего набора языков, то текст на баннере соответствует этому языку(иначе язык === english)
-
-if (Object.keys(languages).indexOf(document.documentElement.lang) !== -1) {
-	const langIndex = Object.keys(languages).indexOf(document.documentElement.lang)
-	getContainer(languages[Object.keys(languages)[langIndex]], Object.keys(languages)[langIndex])
+if (window.location.search === "") {
+  if (Object.keys(languages).indexOf(userLang) !== -1) {
+	  const langIndex = Object.keys(languages).indexOf(userLang)
+	  getContainer(languages[Object.keys(languages)[langIndex]])
+  } else {
+	  getContainer(languages['en'])
+  }
 } else {
-	getContainer(languages['en'], 'en')
+  const langAtrr = window.location.search.split("=")[1]
+  if (Object.keys(languages).indexOf(langAtrr) !== -1) {
+	const langIndex = Object.keys(languages).indexOf(langAtrr)
+	getContainer(languages[Object.keys(languages)[langIndex]])
+} else {
+	getContainer(languages['en'])
 }
-
+}
 // Функция, которая поставит нужный нам язык 
-function getContainer(language,l) {
-	window.location = loc.split('#')[0]+`#?lang=${l}`
+function getContainer(language) {
 	const restore = document.querySelector('.restore a')
 	restore.innerHTML = language['Restore']
 	const title = document.querySelector('.title')
