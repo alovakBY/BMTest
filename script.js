@@ -175,19 +175,14 @@ const languages = {
 // Задаем атрибут lang = языку системы
 document.documentElement.lang = userLang.slice(0,2).toLowerCase()
 
-
 // Если атрибут lang === какому-нибудь из нашего набора языков, то текст на баннере соответствует этому языку(иначе язык === english)
-if (Object.keys(languages).some((el) => el === document.documentElement.lang)) {
-	for (let i = 0; i < Object.keys(languages).length; i++) {
-		 if (document.documentElement.lang === Object.keys(languages)[i]) {
-			  getContainer(languages[Object.keys(languages)[i]], Object.keys(languages)[i])
-			  break
-		 }
-	}
+
+if (Object.keys(languages).indexOf(document.documentElement.lang) !== -1) {
+	const langIndex = Object.keys(languages).indexOf(document.documentElement.lang)
+	getContainer(languages[Object.keys(languages)[langIndex]], Object.keys(languages)[langIndex])
 } else {
 	getContainer(languages['en'], 'en')
 }
-
 
 // Функция, которая поставит нужный нам язык 
 function getContainer(language,l) {
