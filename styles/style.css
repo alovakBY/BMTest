@@ -330,6 +330,7 @@ body {
   }
 
   .cell__label {
+    width: 127px;
     font-size: 13px;
     line-height: 15px;
   }
